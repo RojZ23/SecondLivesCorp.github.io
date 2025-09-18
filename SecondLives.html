@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Second Lives Corp - Revolutionary Memory and Life Restoration</title>
+    <title>Second Lives Corp - Secure Archives</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -588,7 +588,8 @@
         }
         
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 15px;
             background: rgba(0, 0, 0, 0.2);
@@ -599,10 +600,42 @@
         }
         
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--secondary);
             box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .employee-login {
+            max-width: 500px;
+            margin: 60px auto 0;
+            background: linear-gradient(145deg, rgba(13, 71, 161, 0.1), rgba(10, 25, 41, 0.8));
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(124, 77, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        .notification {
+            background: rgba(229, 57, 53, 0.2);
+            border-left: 4px solid #e53935;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+            color: var(--text);
         }
         
         footer {
@@ -641,6 +674,90 @@
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-secondary);
+        }
+        
+        /* Archive Page Styles */
+        .archive-container {
+            display: none;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .archive-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .archive-category {
+            margin-bottom: 50px;
+        }
+        
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .archive-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(124, 77, 255, 0.2);
+        }
+        
+        .archive-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(124, 77, 255, 0.3);
+        }
+        
+        .archive-thumbnail {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .archive-info {
+            padding: 15px;
+        }
+        
+        .archive-info h3 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .archive-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .file-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .logout-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(229, 57, 53, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(229, 57, 53, 0.4);
         }
         
         @media (max-width: 768px) {
@@ -683,6 +800,10 @@
                 width: 100%;
                 max-width: 280px;
             }
+            
+            .archive-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
         }
     </style>
 </head>
@@ -711,7 +832,7 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
-                <a href="#contact" class="cta-button">Volunteer Now</a>
+                <a href="Volunteer.html" class="cta-button">Volunteer Now!</a>
             </div>
         </div>
     </header>
@@ -831,7 +952,7 @@
                     <h2>Nova Crest City Research Initiative</h2>
                     <p>We're excited to announce our most ambitious project to date: Nova Crest City, a state-of-the-art research community dedicated to advancing our rehabilitation technologies.</p>
                     <p>This controlled environment allows us to study long-term outcomes and refine our processes with unprecedented precision. We're currently seeking volunteers who want to contribute to this groundbreaking research.</p>
-                    <a href="#contact" class="btn" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px);">Apply to Volunteer</a>
+                    <a href="volunteer.html" class="btn" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px);">Apply to Volunteer</a>
                 </div>
                 <div class="nova-crest-media">
                     <!-- Replace the src with your Nova Crest video file path -->
@@ -840,6 +961,10 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
+            </div>
+            
+            <div class="notification">
+                <strong>Important Notice:</strong> Please note: Nova Crest City is no longer part of the cooperation and has been shut down due to an incident.
             </div>
             
             <div class="features">
@@ -865,12 +990,12 @@
     <section id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Join Our Research Initiative</h2>
-                <p>We're currently accepting applications for volunteers to participate in our Nova Crest City research program.</p>
+                <h2>Contact Us & Newsletter</h2>
+                <p>Stay updated with our latest research developments and announcements.</p>
             </div>
             
             <div class="contact-form">
-                <h3 style="text-align: center; margin-bottom: 30px; color: var(--secondary);">Apply to become a volunteer</h3>
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--secondary);">Subscribe to our newsletter</h3>
                 <form>
                     <div style="display: flex; gap: 20px; margin-bottom: 20px;">
                         <div class="form-group" style="flex: 1;">
@@ -887,20 +1012,80 @@
                         <input type="email" id="email" placeholder="Email Address">
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" placeholder="Phone Number">
+                        <label for="subject">Subject</label>
+                        <select id="subject">
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="research">Research Information</option>
+                            <option value="media">Media Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Why are you interested in volunteering?</label>
-                        <textarea id="message" placeholder="Tell us about your motivation" rows="5"></textarea>
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="How can we help you?" rows="5"></textarea>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter">
+                        <label for="newsletter">Subscribe to our newsletter for updates</label>
                     </div>
                     <div style="text-align: center;">
-                        <button type="submit" class="btn">Submit Application</button>
+                        <button type="submit" class="btn">Send Message</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="employee-login">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--secondary);">Employee Login</h3>
+                <form id="employeeLoginForm">
+                    <div class="form-group">
+                        <label for="employeeId">Employee ID</label>
+                        <input type="text" id="employeeId" placeholder="Enter your employee ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password">
+                    </div>
+                    <div class="form-group">
+                        <label for="accessLevel">Access Level</label>
+                        <select id="accessLevel">
+                            <option value="1">Level 1 - Basic Access</option>
+                            <option value="2">Level 2 - Intermediate Access</option>
+                            <option value="3">Level 3 - Advanced Access</option>
+                            <option value="4">Level 4 - Administrator Access</option>
+                        </select>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="button" class="btn" onclick="handleEmployeeLogin()">Login to Archives</button>
                     </div>
                 </form>
             </div>
         </div>
     </section>
+
+    <!-- Archive Section (Hidden until login) -->
+    <div id="archiveSection" class="archive-container">
+        <button class="logout-btn" onclick="logout()">Logout</button>
+        
+        <div class="archive-header">
+            <h2>Second Lives Corp Archives</h2>
+            <p>Access Level: <span id="accessLevelDisplay">Level 1 - Basic Access</span></p>
+        </div>
+        
+        <div class="archive-category">
+            <h3>Image Archives</h3>
+            <div class="archive-grid" id="imageArchives">
+                <!-- Content will be populated by JavaScript based on access level -->
+            </div>
+        </div>
+        
+        <div class="archive-category">
+            <h3>PDF Archives</h3>
+            <div class="archive-grid" id="pdfArchives">
+                <!-- Content will be populated by JavaScript based on access level -->
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -961,6 +1146,383 @@
                 });
             });
         });
+        
+        // Employee login handler
+        function handleEmployeeLogin() {
+            const employeeId = document.getElementById('employeeId').value;
+            const password = document.getElementById('password').value;
+            const accessLevel = document.getElementById('accessLevel').value;
+            
+            // Simple validation
+            if (!employeeId || !password) {
+                alert('Please enter both Employee ID and Password');
+                return;
+            }
+            
+            // Check credentials based on access level
+            let isValid = false;
+            
+            switch(accessLevel) {
+                case '1':
+                    isValid = (password === 'access1' || password === 'basic2024');
+                    break;
+                case '2':
+                    isValid = (password === 'research2' || password === 'intermediateSEC');
+                    break;
+                case '3':
+                    isValid = (password === 'classified3' || password === 'advNCrest2024');
+                    break;
+                case '4':
+                    isValid = (password === 'adminSecure4' || password === 'SLadmin2024!');
+                    break;
+            }
+            
+            if (isValid) {
+                // Hide the main content and show the archive section
+                document.querySelector('header').style.display = 'none';
+                document.querySelectorAll('section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.querySelector('footer').style.display = 'none';
+                
+                // Show the archive section
+                document.getElementById('archiveSection').style.display = 'block';
+                
+                // Update access level display
+                const accessText = document.getElementById('accessLevel').options[document.getElementById('accessLevel').selectedIndex].text;
+                document.getElementById('accessLevelDisplay').textContent = accessText;
+                
+                // Load appropriate content based on access level
+                loadArchiveContent(accessLevel);
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            } else {
+                alert('Invalid credentials for the selected access level. Please try again.');
+            }
+        }
+        
+        // Logout function
+        function logout() {
+            // Show the main content and hide the archive section
+            document.querySelector('header').style.display = 'flex';
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'block';
+            });
+            document.querySelector('footer').style.display = 'block';
+            
+            // Hide the archive section
+            document.getElementById('archiveSection').style.display = 'none';
+            
+            // Clear the login form
+            document.getElementById('employeeId').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('accessLevel').value = '1';
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Load archive content based on access level
+        function loadArchiveContent(accessLevel) {
+            const imageArchives = document.getElementById('imageArchives');
+            const pdfArchives = document.getElementById('pdfArchives');
+            
+            // Clear previous content
+            imageArchives.innerHTML = '';
+            pdfArchives.innerHTML = '';
+            
+            // Load content based on access level
+            switch(accessLevel) {
+                case '1':
+                    // Level 1 - Basic Access
+                    imageArchives.innerHTML = `
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Facility Tour</h3>
+                                <p>Public facility photos from 2023</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Team Events</h3>
+                                <p>Company events and gatherings</p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    pdfArchives.innerHTML = `
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Annual Report 2023</h3>
+                                <p>Public annual report</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Press Releases</h3>
+                                <p>Public announcements</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case '2':
+                    // Level 2 - Intermediate Access
+                    imageArchives.innerHTML = `
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Lab Equipment</h3>
+                                <p>Research laboratory photos</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Research Documentation</h3>
+                                <p>Phase 1 research images</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Technical Setup</h3>
+                                <p>Equipment installation</p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    pdfArchives.innerHTML = `
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Research Methodology</h3>
+                                <p>Technical research papers</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Phase 1 Results</h3>
+                                <p>Initial findings report</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Technical Specifications</h3>
+                                <p>Equipment documentation</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case '3':
+                    // Level 3 - Advanced Access
+                    imageArchives.innerHTML = `
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Specimen Photos</h3>
+                                <p>Biological specimen documentation</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Experimental Results</h3>
+                                <p>Phase 2 experimental data</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Neural Mapping</h3>
+                                <p>Neural pathway visualization</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Phase 3 Progress</h3>
+                                <p>Stability research images</p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    pdfArchives.innerHTML = `
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Project Files</h3>
+                                <p>Internal project documentation</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Internal Communications</h3>
+                                <p>Research team correspondence</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Phase 2 Analysis</h3>
+                                <p>Detailed research analysis</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Technical Reports</h3>
+                                <p>Advanced technical documentation</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case '4':
+                    // Level 4 - Administrator Access
+                    imageArchives.innerHTML = `
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Security Footage</h3>
+                                <p>Facility security recordings</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Incident Documentation</h3>
+                                <p>Nova Crest incident photos</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Personnel Files</h3>
+                                <p>Employee identification photos</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Research Specimens</h3>
+                                <p>Advanced specimen documentation</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Experimental Results</h3>
+                                <p>All research phase results</p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    pdfArchives.innerHTML = `
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Financial Records</h3>
+                                <p>Company financial documentation</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Personnel Files</h3>
+                                <p>Employee records and documents</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Incident Reports</h3>
+                                <p>Nova Crest incident documentation</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Research Data</h3>
+                                <p>Complete research dataset</p>
+                            </div>
+                        </div>
+                        <div class="archive-item">
+                            <div class="archive-thumbnail">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="archive-info">
+                                <h3>Administrative Documents</h3>
+                                <p>All company administrative files</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+            }
+        }
     </script>
 </body>
 </html>
